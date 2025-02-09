@@ -35,3 +35,16 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+
+function Run()
+
+  local ui = require("tools.ui")
+  require("tools.ui.state")
+
+  local data = State("Hola tio")
+
+  ui.TextField({ title=" Ask ", prefix="?", bind=data }):render()
+  ui.Div({ value=data, border="single" }):render()
+
+end
