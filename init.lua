@@ -36,15 +36,21 @@ vim.schedule(function()
   require "mappings"
 end)
 
-
 function Run()
-
   local ui = require("tools.ui")
-  require("tools.ui.state")
 
-  local data = State("Hola tio")
+  ui.Column({
+    width='10px',
+    height='20px',
+    children={
+      ui.Div({ border='single', value={ "div 1" }, height='2px' }),
+      ui.Div({ border='single', value={ "div 2" }, }),
+      ui.Div({ border='single', value={ "div 3" }, }),
+      ui.Div({ border='single', value={ "div 4" }, }),
+    }
+  }):render()
 
-  ui.TextField({ title=" Ask ", prefix="?", bind=data }):render()
-  ui.Div({ value=data, border="single" }):render()
+
 
 end
+

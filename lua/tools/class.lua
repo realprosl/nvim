@@ -1,9 +1,13 @@
+---@class Class : table
+---@field type string
 local class = {}
 class.__index = class
 
+---@param type string
+---@return Class
 function Class(type)
   local instance = {
-    type=type
+    type = type
   }
   setmetatable(instance, class)
 
@@ -12,8 +16,9 @@ function Class(type)
   return instance
 end
 
+---@param instance Class
+---@return Class
 function class:super(instance)
-  setmetatable(instance,self)
+  setmetatable(instance, self)
   return instance
 end
-
